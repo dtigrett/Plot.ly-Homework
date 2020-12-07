@@ -1,6 +1,6 @@
-// Creating function for Data plotting (Bar, gauge, bubble)
+// Creating function for Data plotting
 function BuildPlots(id) {
-    // getting data from the json file
+    // get data from the json file
     d3.json("samples.json").then(function(data) {
         console.log(data)
   
@@ -57,9 +57,9 @@ function BuildPlots(id) {
         // create the bar plot
         Plotly.newPlot("bar", data, layout);
   
-        //console.log(`ID: ${samples.otu_ids}`)
+        
       
-        // The bubble chart
+        //  Bubble chart
         var trace1 = {
             x: sampleId.otu_ids,
             y: sampleId.sample_values,
@@ -72,20 +72,20 @@ function BuildPlots(id) {
   
         };
   
-        //  layout for the bubble plot
+        //  layout for  Bubble Plot
         var layoutBubble = {
             xaxis:{title: "OTU ID"},
             height: 600,
             width: 1000
         };
   
-        // creating data variable 
+        // create data variable 
         var data1 = [trace1];
   
-        // create the bubble plot
+        // create  Bubble Plot
         Plotly.newPlot("bubble", data1, layoutBubble); 
   
-        //  gauge chart
+        //  Gauge chart
   
         var data_gauge = [
           {
@@ -114,7 +114,7 @@ function BuildPlots(id) {
         Plotly.newPlot("gauge", data_gauge, layoutGauge);
       });
   }  
-  // create the function to get the necessary data
+  // function to get the needed data
   function DemoInfo(id) {
     // read the json file to get data
     d3.json("samples.json").then(function(data) {
@@ -140,7 +140,7 @@ function BuildPlots(id) {
     });
   }
   
-  // create the function for the change event
+  // function for the change event
   function optionChanged(id) {
     BuildPlots(id);
     DemoInfo(id);
